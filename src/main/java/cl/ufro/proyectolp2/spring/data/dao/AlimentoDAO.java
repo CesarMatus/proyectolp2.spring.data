@@ -5,6 +5,7 @@
  */
 package cl.ufro.proyectolp2.spring.data.dao;
 
+import cl.ufro.proyectolp2.spring.data.modelo.Alimento;
 import org.springframework.data.repository.CrudRepository;
 
 /**
