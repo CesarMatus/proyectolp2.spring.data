@@ -1,6 +1,10 @@
-div tablaCasino{
-    background-color:white; 
+html,body {height: 100%;}
+body{margin:0;}
+
+#tablas{
+    color: white
 }
+
 .botones{
     width: 100%;
     box-sizing: border-box;
@@ -17,3 +21,4 @@ div tablaCasino{
     position: absolute;
     left: 280px;
 }
+

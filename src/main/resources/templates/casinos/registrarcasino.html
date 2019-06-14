@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/Google-Style-Login.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
 
 <body style="background-color: rgb(85,86,86);color: rgb(64,71,78);">
@@ -31,32 +31,30 @@
             </div>
         </div>
     </nav>
-    <div id="tablaCasinos">
-        </br>
+    <div class="row">
+    </br>
         <h3>
-            Listas de casinos
+            Completar datos del formulario
         </h3>
-        </br>
-        <div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Editar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row"></th>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-
+    </br>
+        <form>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Ingresar Nombre Casino</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre Casino">
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Ingresar Direccion</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="direccion de ejemplo #111">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Ingresar Capacidad</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="100">
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput2">Ingresar Dia</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="diaxd">
+              </div>
+          </form>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
