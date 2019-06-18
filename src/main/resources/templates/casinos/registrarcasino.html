@@ -27,32 +27,33 @@
         </div>
     </nav>
     <div class="row">
-    </br>
+    <br>
     <div class="tablas centrar">
         <h3>
             Completar datos del formulario
         </h3>
     </div>
         
-    </br>
+    <br>
     <div class="tablas row">
-        <form th:action="@{registrarCasino}" th:object="{casinonuevo}" method="post">
+        <form action="#" th:action="@{registrarCasino}" th:object="${casinonuevo}" method="post">
             <div class="form-group">
               <label for="formGroupExampleInput">Ingresar Nombre Casino</label>
               <input th:field="*{nombre}" type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre Casino">
             </div>
             <div class="form-group">
               <label for="formGroupExampleInput2">Ingresar Direccion</label>
-              <input th:field="direccion" type="text" class="form-control" id="formGroupExampleInput2" placeholder="direccion de ejemplo #111">
+              <input th:field="*{direccion}" type="text" class="form-control" id="formGroupExampleInput2" placeholder="direccion de ejemplo #111">
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Ingresar Capacidad</label>
-                <input th:field="capacidad" type="text" class="form-control" id="formGroupExampleInput2" placeholder="100">
+                <input th:field="*{capacidad]" type="text" class="form-control" id="formGroupExampleInput2" placeholder="100">
               </div>
               <div class="form-group">
                 <label for="formGroupExampleInput2">Ingresar Dia</label>
-                <input th:field="dia" type="text" class="form-control" id="formGroupExampleInput2" placeholder="diaxd">
+                <input th:field="*{dia}" type="text" class="form-control" id="formGroupExampleInput2" placeholder="diaxd">
               </div>
+              <a action="#" type="button" class="btn btn-warning">Registrar</a>
           </form>
     </div>
     </div>
