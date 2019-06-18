@@ -27,6 +27,6 @@ public class CasinoController {
     public String page(Model model) {
         
         model.addAttribute("casinos", this.casinoDAO.findAll());
-        return "casinos/index";
+        return "casinos/casinos";
     }
 }
