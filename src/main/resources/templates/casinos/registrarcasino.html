@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -36,22 +36,22 @@
         
     </br>
     <div class="tablas row">
-        <form>
+        <form th:action="@{registrarCasino}" th:object="{casinonuevo}" method="post">
             <div class="form-group">
               <label for="formGroupExampleInput">Ingresar Nombre Casino</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre Casino">
+              <input th:field="*{nombre}" type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre Casino">
             </div>
             <div class="form-group">
               <label for="formGroupExampleInput2">Ingresar Direccion</label>
-              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="direccion de ejemplo #111">
+              <input th:field="direccion" type="text" class="form-control" id="formGroupExampleInput2" placeholder="direccion de ejemplo #111">
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">Ingresar Capacidad</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="100">
+                <input th:field="capacidad" type="text" class="form-control" id="formGroupExampleInput2" placeholder="100">
               </div>
               <div class="form-group">
                 <label for="formGroupExampleInput2">Ingresar Dia</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="diaxd">
+                <input th:field="dia" type="text" class="form-control" id="formGroupExampleInput2" placeholder="diaxd">
               </div>
           </form>
     </div>
