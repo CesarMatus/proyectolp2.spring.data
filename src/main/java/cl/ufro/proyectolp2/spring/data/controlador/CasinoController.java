@@ -29,4 +29,11 @@ public class CasinoController {
         model.addAttribute("casinos", this.casinoDAO.findAll());
         return "casinos/casinos";
     }
+    
+    @GetMapping("registrarcasino")
+    public String Crear(Model model) {
+        
+        model.addAttribute("registrarcasino", this.casinoDAO.findAll());
+        return "casinos/registrarcasino";
+    }
 }
