@@ -14,4 +14,8 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface CasinoDAO extends CrudRepository<Casino, Integer> {
     
+    
+    
+    public Casino findById(int id);
+    
 }

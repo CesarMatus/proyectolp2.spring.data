@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,6 +49,20 @@ public class CasinoController {
         this.casinoDAO.save(casino); 
         response.sendRedirect("");
     }
+    
+    @PostMapping("editarcasino/id")
+    public void editarCasino(@ModelAttribute Casino casino, HttpServletResponse response,@PathVariable("id") Integer id) throws IOException {
+        Casino casinoBD = casinoDAO.findById(id.intValue());
+        this.casinoDAO.save(casino); 
+        response.sendRedirect("");
+    }
+    
+    @DeleteMapping("eliminarcasino/id")
+    public void eliminarCasino(@ModelAttribute Casino casino, HttpServletResponse response,@PathVariable("id") Integer id) throws IOException {
+        this.casinoDAO.deleteById(id); 
+        response.sendRedirect("");
+    }
+    
     
     @GetMapping("{id}")
     public String show(@PathVariable("id") Integer id,Model model){
