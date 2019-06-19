@@ -52,10 +52,10 @@
                 </thead>
                 <tbody>
                     <tr th:each="casino :${casinos}">
-                        <th scope="row" th:text="{casino.id}"></th>
-                        <td th:text="{casino.nombre}"></td>
-                        <td th:text="{casino.direccion}"></td>
-                        <td th:text="{casino.capacidad}"></td>
+                        <th scope="row" th:text="*{casino.id}"></th>
+                        <td th:text="*{casino.nombre}"></td>
+                        <td th:text="*{casino.direccion}"></td>
+                        <td th:text="*{casino.capacidad}"></td>
                         <td><a type="button" class="btn btn-warning"></a><a type="button" class="btn btn-danger"></a></td>
                     </tr>
 

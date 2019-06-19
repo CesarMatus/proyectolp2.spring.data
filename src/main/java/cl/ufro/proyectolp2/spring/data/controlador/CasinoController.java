@@ -7,10 +7,13 @@ package cl.ufro.proyectolp2.spring.data.controlador;
 
 import cl.ufro.proyectolp2.spring.data.dao.CasinoDAO;
 import cl.ufro.proyectolp2.spring.data.modelo.Casino;
+import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,10 +42,9 @@ public class CasinoController {
         return "casinos/registrarcasino";
     }
     
-    @PostMapping("registrarcasino")
-    public String registrarCasinoNuevo(Model model) {
-        
-        model.addAttribute("casinonuevo", new Casino());
-        return "casinos/registrarcasino";
+    @PostMapping("registrarCasino")
+    public void registrarCasinoNuevo(@ModelAttribute Casino casino, HttpServletResponse response) throws IOException {
+        this.casinoDAO.save(casino); 
+        response.sendRedirect("");
     }
 }
