@@ -47,7 +47,8 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Direccion</th>
                             <th scope="col">Capacidad</th>
-                            <th scope="col">Editar</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,7 +57,8 @@
                             <td th:text="*{casino.nombre}"></td>
                             <td th:text="*{casino.direccion}"></td>
                             <td th:text="*{casino.capacidad}"></td>
-                            <td><a type="button" class="btn btn-warning"></a><a type="button" class="btn btn-danger"></a></td>
+                            <td><a type="button" th:href="@{'/casinos/'+${casino.id}}" class="btn btn-warning"></a></td>
+                            <td><a type="button"  class="btn btn-danger"></a></td>
                         </tr>
 
                     </tbody>
