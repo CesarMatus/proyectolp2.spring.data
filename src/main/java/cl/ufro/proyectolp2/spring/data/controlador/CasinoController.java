@@ -32,9 +32,9 @@ public class CasinoController {
     
     @GetMapping
     public String page(Model model) {
-        
-        model.addAttribute("casinos", this.casinoDAO.findAll());
+         model.addAttribute("casinos", this.casinoDAO.findAll());
         return "casinos/casinos";
+       
     }
     
     @GetMapping("registrarcasino")
