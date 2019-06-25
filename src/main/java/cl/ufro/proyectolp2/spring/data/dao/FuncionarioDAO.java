@@ -14,4 +14,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface FuncionarioDAO extends CrudRepository<Funcionario, Integer> {
     
+    public Funcionario findById(int id);           
 }

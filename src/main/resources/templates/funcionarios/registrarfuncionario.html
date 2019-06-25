@@ -37,7 +37,7 @@
         <br>
         <div class="tablas centrar">
             <h4>
-                Completar datos del formulario
+                Completar con los datos del funcionario
             </h4>
         </div>
 
@@ -45,26 +45,26 @@
         <br>
         <br>
         <div class="tablas row">
-            <form action="#" th:action="@{registrarCasino}" th:object="${casinonuevo}" method="post">
+            <form action="#" th:action="@{registrarFuncionario}" th:object="${funcionarionuevo}" method="post">
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Ingresar Nombre Casino</label>
+                    <label for="formGroupExampleInput">Ingresar Nombre Funcionario</label>
                     <input th:field="*{nombre}" type="text" class="form-control" id="formGroupExampleInput"
-                        placeholder="Nombre Casino">
+                        placeholder="Nombre Funcionario">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Ingresar Direccion</label>
-                    <input th:field="*{direccion}" type="text" class="form-control" id="formGroupExampleInput2"
-                        placeholder="direccion de ejemplo #111">
+                    <label for="formGroupExampleInput2">Ingresar Correo</label>
+                    <input th:field="*{correo}" type="text" class="form-control" id="formGroupExampleInput2"
+                        placeholder="correo@ejemplo.com">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Ingresar Capacidad</label>
-                    <input th:field="*{capacidad}" type="text" class="form-control" id="formGroupExampleInput2"
-                        placeholder="100">
+                    <label for="formGroupExampleInput2">Ingresar Contraseña</label>
+                    <input th:field="*{contraseña}" type="password" class="form-control" id="formGroupExampleInput2"
+                        placeholder="*******">
                 </div>
                 <div class="form-group">
-                    <label for="formGroupExampleInput2">Ingresar Dia</label>
-                    <input th:field="*{dia}" type="text" class="form-control" id="formGroupExampleInput2"
-                        placeholder="diaxd">
+                    <label for="formGroupExampleInput2">Ingresar Edad</label>
+                    <input th:field="*{edad}" type="text" class="form-control" id="formGroupExampleInput2"
+                        placeholder="Edad funcionario">
                 </div>
                 <button action="#" type="submit" class="btn btn-warning">Registrar</button>
             </form>
