@@ -57,10 +57,10 @@ public class CasinoController {
         response.sendRedirect("");
     }
     
-    @DeleteMapping("eliminarcasino/id")
-    public void eliminarCasino(@ModelAttribute Casino casino, HttpServletResponse response,@PathVariable("id") Integer id) throws IOException {
+    @GetMapping("eliminarcasino/{id}")
+    public String eliminarFuncionario(HttpServletResponse response,@PathVariable("id") Integer id) throws IOException {
         this.casinoDAO.deleteById(id); 
-        response.sendRedirect("");
+        return "redirect:/casinos";
     }
     
     

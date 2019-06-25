@@ -59,10 +59,10 @@ public class FuncionarioController {
         response.sendRedirect("");
     }
     
-    @DeleteMapping("eliminarfuncionario/id")
-    public void eliminarFuncionario(@ModelAttribute Funcionario funcionario, HttpServletResponse response,@PathVariable("id") Integer id) throws IOException {
+    @GetMapping("eliminarfuncionario/{id}")
+    public String eliminarFuncionario(HttpServletResponse response,@PathVariable("id") Integer id) throws IOException {
         this.funcionarioDAO.deleteById(id); 
-        response.sendRedirect("");
+        return "redirect:/funcionarios";
     }
     
     
