@@ -26,13 +26,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "cliente")
-@NamedQueries({
-    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c")
-    , @NamedQuery(name = "Cliente.findById", query = "SELECT c FROM Cliente c WHERE c.id = :id")
-    , @NamedQuery(name = "Cliente.findByNombre", query = "SELECT c FROM Cliente c WHERE c.nombre = :nombre")
-    , @NamedQuery(name = "Cliente.findByCorreo", query = "SELECT c FROM Cliente c WHERE c.correo = :correo")
-    , @NamedQuery(name = "Cliente.findByContrase\u00f1a", query = "SELECT c FROM Cliente c WHERE c.contrase\u00f1a = :contrase\u00f1a")
-    , @NamedQuery(name = "Cliente.findByEdad", query = "SELECT c FROM Cliente c WHERE c.edad = :edad")})
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;

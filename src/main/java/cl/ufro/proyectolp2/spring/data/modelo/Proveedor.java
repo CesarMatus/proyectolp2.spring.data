@@ -23,10 +23,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "proveedor")
-@NamedQueries({
-    @NamedQuery(name = "Proveedor.findAll", query = "SELECT p FROM Proveedor p")
-    , @NamedQuery(name = "Proveedor.findByCodProveedor", query = "SELECT p FROM Proveedor p WHERE p.codProveedor = :codProveedor")
-    , @NamedQuery(name = "Proveedor.findByNombre", query = "SELECT p FROM Proveedor p WHERE p.nombre = :nombre")})
 public class Proveedor implements Serializable {
 
     private static final long serialVersionUID = 1L;

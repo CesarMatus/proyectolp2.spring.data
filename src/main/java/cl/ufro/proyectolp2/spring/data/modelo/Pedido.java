@@ -25,11 +25,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "pedido")
-@NamedQueries({
-    @NamedQuery(name = "Pedido.findAll", query = "SELECT p FROM Pedido p")
-    , @NamedQuery(name = "Pedido.findById", query = "SELECT p FROM Pedido p WHERE p.id = :id")
-    , @NamedQuery(name = "Pedido.findByFecha", query = "SELECT p FROM Pedido p WHERE p.fecha = :fecha")
-    , @NamedQuery(name = "Pedido.findByNroAtencion", query = "SELECT p FROM Pedido p WHERE p.nroAtencion = :nroAtencion")})
 public class Pedido implements Serializable {
 
     private static final long serialVersionUID = 1L;

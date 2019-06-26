@@ -26,12 +26,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "casino")
-@NamedQueries({
-    @NamedQuery(name = "Casino.findAll", query = "SELECT c FROM Casino c")
-    , @NamedQuery(name = "Casino.findById", query = "SELECT c FROM Casino c WHERE c.id = :id")
-    , @NamedQuery(name = "Casino.findByNombre", query = "SELECT c FROM Casino c WHERE c.nombre = :nombre")
-    , @NamedQuery(name = "Casino.findByDireccion", query = "SELECT c FROM Casino c WHERE c.direccion = :direccion")
-    , @NamedQuery(name = "Casino.findByCapacidad", query = "SELECT c FROM Casino c WHERE c.capacidad = :capacidad")})
 public class Casino implements Serializable {
 
     private static final long serialVersionUID = 1L;

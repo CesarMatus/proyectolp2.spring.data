@@ -29,13 +29,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "menu")
-@NamedQueries({
-    @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m")
-    , @NamedQuery(name = "Menu.findById", query = "SELECT m FROM Menu m WHERE m.id = :id")
-    , @NamedQuery(name = "Menu.findByTipoMenu", query = "SELECT m FROM Menu m WHERE m.tipoMenu = :tipoMenu")
-    , @NamedQuery(name = "Menu.findByDia", query = "SELECT m FROM Menu m WHERE m.dia = :dia")
-    , @NamedQuery(name = "Menu.findByDescripcion", query = "SELECT m FROM Menu m WHERE m.descripcion = :descripcion")
-    , @NamedQuery(name = "Menu.findByCosto", query = "SELECT m FROM Menu m WHERE m.costo = :costo")})
 public class Menu implements Serializable {
 
     private static final long serialVersionUID = 1L;
