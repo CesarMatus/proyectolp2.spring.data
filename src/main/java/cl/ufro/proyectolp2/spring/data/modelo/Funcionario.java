@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -24,7 +26,12 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "funcionario")
 @NamedQueries({
-    @NamedQuery(name = "Funcionario.findAll", query = "SELECT f FROM Funcionario f")})
+    @NamedQuery(name = "Funcionario.findAll", query = "SELECT f FROM Funcionario f")
+    , @NamedQuery(name = "Funcionario.findById", query = "SELECT f FROM Funcionario f WHERE f.id = :id")
+    , @NamedQuery(name = "Funcionario.findByNombre", query = "SELECT f FROM Funcionario f WHERE f.nombre = :nombre")
+    , @NamedQuery(name = "Funcionario.findByCorreo", query = "SELECT f FROM Funcionario f WHERE f.correo = :correo")
+    , @NamedQuery(name = "Funcionario.findByContrase\u00f1a", query = "SELECT f FROM Funcionario f WHERE f.contrase\u00f1a = :contrase\u00f1a")
+    , @NamedQuery(name = "Funcionario.findByEdad", query = "SELECT f FROM Funcionario f WHERE f.edad = :edad")})
 public class Funcionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,6 +51,9 @@ public class Funcionario implements Serializable {
     private String contraseña;
     @Column(name = "edad")
     private Integer edad;
+    @JoinColumn(name = "cod_casino", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Casino codCasino;
 
     public Funcionario() {
     }
@@ -90,6 +100,14 @@ public class Funcionario implements Serializable {
 
     public void setEdad(Integer edad) {
         this.edad = edad;
+    }
+
+    public Casino getCodCasino() {
+        return codCasino;
+    }
+
+    public void setCodCasino(Casino codCasino) {
+        this.codCasino = codCasino;
     }
 
     @Override

@@ -6,16 +6,16 @@
 package cl.ufro.proyectolp2.spring.data.modelo;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -30,7 +30,12 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "menu")
 @NamedQueries({
-    @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m")})
+    @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m")
+    , @NamedQuery(name = "Menu.findById", query = "SELECT m FROM Menu m WHERE m.id = :id")
+    , @NamedQuery(name = "Menu.findByTipoMenu", query = "SELECT m FROM Menu m WHERE m.tipoMenu = :tipoMenu")
+    , @NamedQuery(name = "Menu.findByDia", query = "SELECT m FROM Menu m WHERE m.dia = :dia")
+    , @NamedQuery(name = "Menu.findByDescripcion", query = "SELECT m FROM Menu m WHERE m.descripcion = :descripcion")
+    , @NamedQuery(name = "Menu.findByCosto", query = "SELECT m FROM Menu m WHERE m.costo = :costo")})
 public class Menu implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,12 +47,20 @@ public class Menu implements Serializable {
     @Size(max = 255)
     @Column(name = "tipo_menu")
     private String tipoMenu;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codMenu", fetch = FetchType.LAZY)
-    private List<Pedido> pedidoList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "menucodMenu", fetch = FetchType.LAZY)
-    private List<Alimento> alimentoList;
+    @Size(max = 255)
+    @Column(name = "dia")
+    private String dia;
+    @Size(max = 255)
+    @Column(name = "descripcion")
+    private String descripcion;
+    @Column(name = "costo")
+    private Integer costo;
+    @ManyToMany(mappedBy = "menuCollection")
+    private Collection<Alimento> alimentoCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codMenu")
+    private Collection<Pedido> pedidoCollection;
     @JoinColumn(name = "cod_casino", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Casino codCasino;
 
     public Menu() {
@@ -73,20 +86,44 @@ public class Menu implements Serializable {
         this.tipoMenu = tipoMenu;
     }
 
-    public List<Pedido> getPedidoList() {
-        return pedidoList;
+    public String getDia() {
+        return dia;
     }
 
-    public void setPedidoList(List<Pedido> pedidoList) {
-        this.pedidoList = pedidoList;
+    public void setDia(String dia) {
+        this.dia = dia;
     }
 
-    public List<Alimento> getAlimentoList() {
-        return alimentoList;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setAlimentoList(List<Alimento> alimentoList) {
-        this.alimentoList = alimentoList;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Integer getCosto() {
+        return costo;
+    }
+
+    public void setCosto(Integer costo) {
+        this.costo = costo;
+    }
+
+    public Collection<Alimento> getAlimentoCollection() {
+        return alimentoCollection;
+    }
+
+    public void setAlimentoCollection(Collection<Alimento> alimentoCollection) {
+        this.alimentoCollection = alimentoCollection;
+    }
+
+    public Collection<Pedido> getPedidoCollection() {
+        return pedidoCollection;
+    }
+
+    public void setPedidoCollection(Collection<Pedido> pedidoCollection) {
+        this.pedidoCollection = pedidoCollection;
     }
 
     public Casino getCodCasino() {

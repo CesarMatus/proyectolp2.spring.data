@@ -6,12 +6,9 @@
 package cl.ufro.proyectolp2.spring.data.modelo;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +16,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -30,7 +26,10 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "pedido")
 @NamedQueries({
-    @NamedQuery(name = "Pedido.findAll", query = "SELECT p FROM Pedido p")})
+    @NamedQuery(name = "Pedido.findAll", query = "SELECT p FROM Pedido p")
+    , @NamedQuery(name = "Pedido.findById", query = "SELECT p FROM Pedido p WHERE p.id = :id")
+    , @NamedQuery(name = "Pedido.findByFecha", query = "SELECT p FROM Pedido p WHERE p.fecha = :fecha")
+    , @NamedQuery(name = "Pedido.findByNroAtencion", query = "SELECT p FROM Pedido p WHERE p.nroAtencion = :nroAtencion")})
 public class Pedido implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,22 +39,16 @@ public class Pedido implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Size(max = 255)
-    @Column(name = "bebestible")
-    private String bebestible;
-    @Size(max = 255)
-    @Column(name = "postre")
-    private String postre;
-    @Size(max = 255)
-    @Column(name = "plato")
-    private String plato;
-    @Size(max = 255)
-    @Column(name = "ensalada")
-    private String ensalada;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codPedido", fetch = FetchType.LAZY)
-    private List<Cliente> clienteList;
+    @Column(name = "fecha")
+    private String fecha;
+    @Column(name = "nro_atencion")
+    private Integer nroAtencion;
     @JoinColumn(name = "cod_menu", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Menu codMenu;
+    @JoinColumn(name = "cod_cliente", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Cliente codCliente;
 
     public Pedido() {
     }
@@ -72,44 +65,20 @@ public class Pedido implements Serializable {
         this.id = id;
     }
 
-    public String getBebestible() {
-        return bebestible;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setBebestible(String bebestible) {
-        this.bebestible = bebestible;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public String getPostre() {
-        return postre;
+    public Integer getNroAtencion() {
+        return nroAtencion;
     }
 
-    public void setPostre(String postre) {
-        this.postre = postre;
-    }
-
-    public String getPlato() {
-        return plato;
-    }
-
-    public void setPlato(String plato) {
-        this.plato = plato;
-    }
-
-    public String getEnsalada() {
-        return ensalada;
-    }
-
-    public void setEnsalada(String ensalada) {
-        this.ensalada = ensalada;
-    }
-
-    public List<Cliente> getClienteList() {
-        return clienteList;
-    }
-
-    public void setClienteList(List<Cliente> clienteList) {
-        this.clienteList = clienteList;
+    public void setNroAtencion(Integer nroAtencion) {
+        this.nroAtencion = nroAtencion;
     }
 
     public Menu getCodMenu() {
@@ -118,6 +87,14 @@ public class Pedido implements Serializable {
 
     public void setCodMenu(Menu codMenu) {
         this.codMenu = codMenu;
+    }
+
+    public Cliente getCodCliente() {
+        return codCliente;
+    }
+
+    public void setCodCliente(Cliente codCliente) {
+        this.codCliente = codCliente;
     }
 
     @Override

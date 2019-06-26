@@ -6,12 +6,11 @@
 package cl.ufro.proyectolp2.spring.data.modelo;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +27,11 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "casino")
 @NamedQueries({
-    @NamedQuery(name = "Casino.findAll", query = "SELECT c FROM Casino c")})
+    @NamedQuery(name = "Casino.findAll", query = "SELECT c FROM Casino c")
+    , @NamedQuery(name = "Casino.findById", query = "SELECT c FROM Casino c WHERE c.id = :id")
+    , @NamedQuery(name = "Casino.findByNombre", query = "SELECT c FROM Casino c WHERE c.nombre = :nombre")
+    , @NamedQuery(name = "Casino.findByDireccion", query = "SELECT c FROM Casino c WHERE c.direccion = :direccion")
+    , @NamedQuery(name = "Casino.findByCapacidad", query = "SELECT c FROM Casino c WHERE c.capacidad = :capacidad")})
 public class Casino implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,11 +48,10 @@ public class Casino implements Serializable {
     private String direccion;
     @Column(name = "capacidad")
     private Integer capacidad;
-    @Size(max = 255)
-    @Column(name = "dia")
-    private String dia;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codCasino", fetch = FetchType.LAZY)
-    private List<Menu> menuList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codCasino")
+    private Collection<Funcionario> funcionarioCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codCasino")
+    private Collection<Menu> menuCollection;
 
     public Casino() {
     }
@@ -90,20 +92,20 @@ public class Casino implements Serializable {
         this.capacidad = capacidad;
     }
 
-    public String getDia() {
-        return dia;
+    public Collection<Funcionario> getFuncionarioCollection() {
+        return funcionarioCollection;
     }
 
-    public void setDia(String dia) {
-        this.dia = dia;
+    public void setFuncionarioCollection(Collection<Funcionario> funcionarioCollection) {
+        this.funcionarioCollection = funcionarioCollection;
     }
 
-    public List<Menu> getMenuList() {
-        return menuList;
+    public Collection<Menu> getMenuCollection() {
+        return menuCollection;
     }
 
-    public void setMenuList(List<Menu> menuList) {
-        this.menuList = menuList;
+    public void setMenuCollection(Collection<Menu> menuCollection) {
+        this.menuCollection = menuCollection;
     }
 
     @Override

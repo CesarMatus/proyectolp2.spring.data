@@ -6,17 +6,17 @@
 package cl.ufro.proyectolp2.spring.data.modelo;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -27,7 +27,12 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "cliente")
 @NamedQueries({
-    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c")})
+    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c")
+    , @NamedQuery(name = "Cliente.findById", query = "SELECT c FROM Cliente c WHERE c.id = :id")
+    , @NamedQuery(name = "Cliente.findByNombre", query = "SELECT c FROM Cliente c WHERE c.nombre = :nombre")
+    , @NamedQuery(name = "Cliente.findByCorreo", query = "SELECT c FROM Cliente c WHERE c.correo = :correo")
+    , @NamedQuery(name = "Cliente.findByContrase\u00f1a", query = "SELECT c FROM Cliente c WHERE c.contrase\u00f1a = :contrase\u00f1a")
+    , @NamedQuery(name = "Cliente.findByEdad", query = "SELECT c FROM Cliente c WHERE c.edad = :edad")})
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,9 +52,8 @@ public class Cliente implements Serializable {
     private String contraseña;
     @Column(name = "edad")
     private Integer edad;
-    @JoinColumn(name = "cod_pedido", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Pedido codPedido;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "codCliente")
+    private Collection<Pedido> pedidoCollection;
 
     public Cliente() {
     }
@@ -98,12 +102,12 @@ public class Cliente implements Serializable {
         this.edad = edad;
     }
 
-    public Pedido getCodPedido() {
-        return codPedido;
+    public Collection<Pedido> getPedidoCollection() {
+        return pedidoCollection;
     }
 
-    public void setCodPedido(Pedido codPedido) {
-        this.codPedido = codPedido;
+    public void setPedidoCollection(Collection<Pedido> pedidoCollection) {
+        this.pedidoCollection = pedidoCollection;
     }
 
     @Override

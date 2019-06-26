@@ -6,15 +6,16 @@
 package cl.ufro.proyectolp2.spring.data.modelo;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -27,7 +28,10 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "alimento")
 @NamedQueries({
-    @NamedQuery(name = "Alimento.findAll", query = "SELECT a FROM Alimento a")})
+    @NamedQuery(name = "Alimento.findAll", query = "SELECT a FROM Alimento a")
+    , @NamedQuery(name = "Alimento.findById", query = "SELECT a FROM Alimento a WHERE a.id = :id")
+    , @NamedQuery(name = "Alimento.findByNombre", query = "SELECT a FROM Alimento a WHERE a.nombre = :nombre")
+    , @NamedQuery(name = "Alimento.findByDescripcion", query = "SELECT a FROM Alimento a WHERE a.descripcion = :descripcion")})
 public class Alimento implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,20 +41,16 @@ public class Alimento implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Size(max = 255)
-    @Column(name = "bebestible")
-    private String bebestible;
+    @Column(name = "nombre")
+    private String nombre;
     @Size(max = 255)
-    @Column(name = "postre")
-    private String postre;
-    @Size(max = 255)
-    @Column(name = "plato")
-    private String plato;
-    @Size(max = 255)
-    @Column(name = "ensalada")
-    private String ensalada;
-    @JoinColumn(name = "menucod_menu", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Menu menucodMenu;
+    @Column(name = "descripcion")
+    private String descripcion;
+    @JoinTable(name = "menu_alimento", joinColumns = {
+        @JoinColumn(name = "alimentoid", referencedColumnName = "id")}, inverseJoinColumns = {
+        @JoinColumn(name = "menuid", referencedColumnName = "id")})
+    @ManyToMany
+    private Collection<Menu> menuCollection;
 
     public Alimento() {
     }
@@ -67,44 +67,28 @@ public class Alimento implements Serializable {
         this.id = id;
     }
 
-    public String getBebestible() {
-        return bebestible;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setBebestible(String bebestible) {
-        this.bebestible = bebestible;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getPostre() {
-        return postre;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setPostre(String postre) {
-        this.postre = postre;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getPlato() {
-        return plato;
+    public Collection<Menu> getMenuCollection() {
+        return menuCollection;
     }
 
-    public void setPlato(String plato) {
-        this.plato = plato;
-    }
-
-    public String getEnsalada() {
-        return ensalada;
-    }
-
-    public void setEnsalada(String ensalada) {
-        this.ensalada = ensalada;
-    }
-
-    public Menu getMenucodMenu() {
-        return menucodMenu;
-    }
-
-    public void setMenucodMenu(Menu menucodMenu) {
-        this.menucodMenu = menucodMenu;
+    public void setMenuCollection(Collection<Menu> menuCollection) {
+        this.menuCollection = menuCollection;
     }
 
     @Override
