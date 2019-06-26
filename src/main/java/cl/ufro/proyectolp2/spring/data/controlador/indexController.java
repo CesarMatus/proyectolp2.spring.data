@@ -5,6 +5,7 @@
  */
 package cl.ufro.proyectolp2.spring.data.controlador;
 
+import cl.ufro.proyectolp2.spring.data.modelo.Cliente;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +17,14 @@ import static org.springframework.web.servlet.mvc.method.annotation.MvcUriCompon
  * @author cesar
  */
 @Controller
-@RequestMapping("index")
+@RequestMapping
 public class indexController {
     
-    @GetMapping
+    @GetMapping("/")
     public String page(Model model) {
+        model.addAttribute("clientenuevo", new Cliente());
         return "index";
     }
+    
     
 }
