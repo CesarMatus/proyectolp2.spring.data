@@ -27,6 +27,6 @@ public class PedidoController {
     @GetMapping
     public String page(Model model){
          model.addAttribute("pedidos", this.pedidoDAO.findAll());
-        return "pedidos/pedidos";
+        return "pedidos";
     }
 }
