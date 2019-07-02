@@ -59,14 +59,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="casino :${casinos}">
-                        <th scope="row" th:text="*{casino.id}"></th>
-                        <td th:text="*{casino.nombre}"></td>
-                        <td th:text="*{casino.direccion}"></td>
-                        <td th:text="*{casino.capacidad}"></td>
-                        <td><a type="button" th:href="@{'/casinos/'+${casino.id}}" class="btn btn-warning"><i
+                    <tr th:each="cliente :${clientes}">
+                        <th scope="row" th:text="*{cliente.id}"></th>
+                        <td th:text="*{cliente.nombre}"></td>
+                        <td th:text="*{casino.correo}"></td>
+                        <td th:text="*{casino.edad}"></td>
+                        <td><a type="button" th:href="@{'/clientes/'+${cliente.id}}" class="btn btn-warning"><i
                                     class="fas fa-edit"></i></a></td>
-                        <form th:action="@{'/casinos/eliminarcasino/'+${casino.id}}" method="GET">
+                        <form th:action="@{'/clientes/eliminarcliente/'+${cliente.id}}" method="GET">
                             <td><button type="submit" onclick="return confirm('¿Eliminar?')" class="btn btn-danger"><i
                                         class="fas fa-trash-alt"></i></button></td>
                         </form>
