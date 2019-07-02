@@ -1,88 +1,96 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
-        <title>ArmaTuBandeja</title>
-        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>ArmaTuBandeja</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
 
-    <body style="background-color: rgb(85,86,86);color: rgb(64,71,78);">
-        <nav class="navbar navbar-light navbar-expand-md" style="background-color: #eb8e20;">
-            <div class="container-fluid"><a class="navbar-brand float-right"
-                                            href="#"><strong><em>TuBandeja4GO!</em></strong></a><button class="navbar-toggler float-right"
-                                                                            data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse text-right border rounded float-right" id="navcol-1"
-                     style="background-color: #4b4a4a;">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="index" style="color: #ffffff;">Inicio</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="menu" style="color: #fefefe;">Menu</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="pedidos" style="color: #fffefd;">Pedir</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link text-right float-right" href="contactos" style="color: #ffffff;">Contactanos</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link text-right float-right" href="administradores" style="color: #ffffff;">Administrados</a></li>
-                    </ul>
-                </div>
+<body style="background-color: rgb(85,86,86);color: rgb(64,71,78);">
+    <nav class="navbar navbar-light navbar-expand-md" style="background-color: #eb8e20;">
+        <div class="container-fluid"><a class="navbar-brand float-right"
+                href="#"><strong><em>TuBandeja4GO!</em></strong></a><button class="navbar-toggler float-right"
+                data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-right border rounded float-right" id="navcol-1"
+                style="background-color: #4b4a4a;">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index"
+                            style="color: #ffffff;">Inicio</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="menu"
+                            style="color: #fefefe;">Menu</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="pedidos"
+                            style="color: #fffefd;">Pedir</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right" href="contactos"
+                            style="color: #ffffff;">Contactanos</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
+                            href="loginadministradores" style="color: #ffffff;">Administradores</a></li>
+                </ul>
             </div>
-        </nav>
-        <div id="tablas">
-            </br>
-            <div class="row">
-                <div class="col-6">
-                    <h3>
-                        Listas de casinos
-                    </h3>
-                </div>
-                <div class="col-6">
-                    <a href="casinos/registrarcasino" type="button" class="btn btn-warning">Registrar Nuevo</a>
-                </div>            
-            </div>
-            </br>
-            <div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Direccion</th>
-                            <th scope="col">Capacidad</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="casino :${casinos}">
-                            <th scope="row" th:text="*{casino.id}"></th>
-                            <td th:text="*{casino.nombre}"></td>
-                            <td th:text="*{casino.direccion}"></td>
-                            <td th:text="*{casino.capacidad}"></td>
-                            <td><a type="button" th:href="@{'/casinos/'+${casino.id}}" class="btn btn-warning"><i class="fas fa-edit"></i></a></td>
-                            <td><a type="button" th:href="@{'/casinos/'+${casino.id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-             
-            <div class="social-bar">
-                <a href="https://www.facebook.com/" class="icon icon-facebook" target="_blank"></a>
-                <a href="https://twitter.com/" class="icon icon-twitter" target="_blank"></a>
-                <a href="https://www.youtube.com/" class="icon icon-youtube" target="_blank"></a>
-                <a href="https://instagram.com/" class="icon icon-instagram" target="_blank"></a>
-              </div>
-
         </div>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    </nav>
+    <div id="tablas">
+        </br>
+        <div class="row">
+            <div class="col-6">
+                <h3>
+                    Listas de casinos
+                </h3>
+            </div>
+            <div class="col-6">
+                <a href="casinos/registrarcasino" type="button" class="btn btn-warning">Registrar Nuevo</a>
+            </div>
+        </div>
+        </br>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Capacidad</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="casino :${casinos}">
+                        <th scope="row" th:text="*{casino.id}"></th>
+                        <td th:text="*{casino.nombre}"></td>
+                        <td th:text="*{casino.direccion}"></td>
+                        <td th:text="*{casino.capacidad}"></td>
+                        <td><a type="button" th:href="@{'/casinos/'+${casino.id}}" class="btn btn-warning"><i
+                                    class="fas fa-edit"></i></a></td>
+                        <td><a type="button" th:href="@{'/casinos/'+${casino.id}}" class="btn btn-danger"><i
+                                    class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="social-bar">
+            <a href="https://www.facebook.com/" class="icon icon-facebook" target="_blank"></a>
+            <a href="https://twitter.com/" class="icon icon-twitter" target="_blank"></a>
+            <a href="https://www.youtube.com/" class="icon icon-youtube" target="_blank"></a>
+            <a href="https://instagram.com/" class="icon icon-instagram" target="_blank"></a>
+        </div>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
 
-    </body>
+</body>
 
 </html>

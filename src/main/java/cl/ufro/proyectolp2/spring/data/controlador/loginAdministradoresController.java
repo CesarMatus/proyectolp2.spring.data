@@ -8,7 +8,6 @@ package cl.ufro.proyectolp2.spring.data.controlador;
 import cl.ufro.proyectolp2.spring.data.dao.UsuarioBaseDAO;
 import cl.ufro.proyectolp2.spring.data.modelo.UsuarioBase;
 import java.io.IOException;
-import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,18 +21,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author pablo
+ * @author cesar
  */
 @Controller
-@RequestMapping("login")
-public class loginController {
+@RequestMapping("loginadministradores")
+public class loginAdministradoresController {
 
     @Autowired
     private UsuarioBaseDAO ubDAO;
 
     @GetMapping
     public String page(Model model) {
-        return "login";
+        return "loginadministradores";
     }
 
     @PostMapping
@@ -45,10 +44,10 @@ public class loginController {
         if (usuarioBD != null && usuarioBD.getContraseña().equals(password)) {
             HttpSession sesion = request.getSession();
             sesion.setAttribute("usuario", usuarioBD);
-            response.sendRedirect("pedidos");
+            response.sendRedirect("administradores");
             return null;
         }
-        return "login";
+        return "loginadministradores";
     }
 
 }

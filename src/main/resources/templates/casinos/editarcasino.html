@@ -17,46 +17,55 @@
             <div class="collapse navbar-collapse text-right border rounded float-right" id="navcol-1"
                 style="background-color: #4b4a4a;">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index" style="color: #ffffff;">Inicio</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="menu" style="color: #fefefe;">Menu</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="pedidos" style="color: #fffefd;">Pedir</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right" href="contacto" style="color: #ffffff;">Contactanos</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right" href="administradores" style="color: #ffffff;">Administrados</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index"
+                            style="color: #ffffff;">Inicio</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="menu"
+                            style="color: #fefefe;">Menu</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="pedidos"
+                            style="color: #fffefd;">Pedir</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right" href="contacto"
+                            style="color: #ffffff;">Contactanos</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
+                            href="loginadministradores" style="color: #ffffff;">Administradores</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="row">
-    <br>
-    <div class="tablas centrar">
-        <h3>
-            Editar Datos
-        </h3>
-    </div>
-        
-    <br>
-    <div class="tablas row">
-        <form action="#" th:action="@{registrarCasino}" th:object="${casinonuevo}" method="post">
-            <div class="form-group">
-                <label for="formGroupExampleInput">ID</label>
-                <input th:field="*{id}" type="text" readonly="readonly" class="form-control" id="formGroupExampleInput" placeholder="Nombre Casino">
-              </div>
-            <div class="form-group">
-              <label for="formGroupExampleInput">Nombre Casino</label>
-              <input th:field="*{nombre}" type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre Casino">
-            </div>
-            <div class="form-group">
-              <label for="formGroupExampleInput2">Direccion</label>
-              <input th:field="*{direccion}" type="text" class="form-control" id="formGroupExampleInput2" placeholder="direccion de ejemplo #111">
-            </div>
-            <div class="form-group">
-                <label for="formGroupExampleInput2">Capacidad</label>
-                <input th:field="*{capacidad}" type="text" class="form-control" id="formGroupExampleInput2" placeholder="100">
-              </div>
-              <button action="#" type="submit" class="btn btn-warning">Editar</button>
-              <a type="button" href="casinos/menus/menus" class="btn btn-warning">Ver Menú</a>
-          </form>
-    </div>
+        <br>
+        <div class="tablas centrar">
+            <h3>
+                Editar Datos
+            </h3>
+        </div>
+
+        <br>
+        <div class="tablas row">
+            <form action="#" th:action="@{registrarCasino}" th:object="${casinonuevo}" method="post">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">ID</label>
+                    <input th:field="*{id}" type="text" readonly="readonly" class="form-control"
+                        id="formGroupExampleInput" placeholder="Nombre Casino">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Nombre Casino</label>
+                    <input th:field="*{nombre}" type="text" class="form-control" id="formGroupExampleInput"
+                        placeholder="Nombre Casino">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Direccion</label>
+                    <input th:field="*{direccion}" type="text" class="form-control" id="formGroupExampleInput2"
+                        placeholder="direccion de ejemplo #111">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Capacidad</label>
+                    <input th:field="*{capacidad}" type="text" class="form-control" id="formGroupExampleInput2"
+                        placeholder="100">
+                </div>
+                <button action="#" type="submit" class="btn btn-warning">Editar</button>
+                <a type="button" href="casinos/menus/menus" class="btn btn-warning">Ver Menú</a>
+            </form>
+        </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
