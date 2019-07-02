@@ -34,7 +34,7 @@ public class ClienteController {
     @GetMapping
     public String page(Model model){
          model.addAttribute("clientes", this.clienteDAO.findAll());
-        return "clientes";
+        return "clientes/clientes";
     }
     
     @GetMapping("index")
