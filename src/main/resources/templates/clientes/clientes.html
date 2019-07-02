@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse text-right border rounded float-right" id="navcol-1"
                 style="background-color: #4b4a4a;">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/"
+                    <li class="nav-item" role="presentation"><a class="nav-link active" th:href="/"
                             style="color: #ffffff;">Inicio</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" th:href="menu"
                             style="color: #fefefe;">Menu</a></li>
@@ -38,11 +38,8 @@
         <div class="row">
             <div class="col-6">
                 <h3>
-                    Listas de casinos
+                    Listas de cliente
                 </h3>
-            </div>
-            <div class="col-6">
-                <a href="casinos/registrarcasino" type="button" class="btn btn-warning">Registrar Nuevo</a>
             </div>
         </div>
         </br>
@@ -52,8 +49,8 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Direccion</th>
-                        <th scope="col">Capacidad</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Edad</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
@@ -62,8 +59,8 @@
                     <tr th:each="cliente :${clientes}">
                         <th scope="row" th:text="*{cliente.id}"></th>
                         <td th:text="*{cliente.nombre}"></td>
-                        <td th:text="*{casino.correo}"></td>
-                        <td th:text="*{casino.edad}"></td>
+                        <td th:text="*{cliente.correo}"></td>
+                        <td th:text="*{cliente.edad}"></td>
                         <td><a type="button" th:href="@{'/clientes/'+${cliente.id}}" class="btn btn-warning"><i
                                     class="fas fa-edit"></i></a></td>
                         <form th:action="@{'/clientes/eliminarcliente/'+${cliente.id}}" method="GET">
