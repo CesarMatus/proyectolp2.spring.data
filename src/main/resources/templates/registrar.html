@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>ArmaTuBandeja</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/fonts/ionicons.min.css}">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="assets/css/Brands.css">
@@ -76,25 +77,42 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <div class="register-photo">
-        <div class="form-container">
-            <div class="image-holder"></div>
-            <form method="post">
-                <h2 class="text-center"><strong>Crear una cuenta.</strong></h2>
-                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password"
-                        placeholder="Password"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password-repeat"
-                        placeholder="Password (repeat)"></div>
-                <div class="form-group">
-                    <div class="form-check"><label class="form-check-label"><input class="form-check-input"
-                                type="checkbox">Estoy deacuerdo con los terminos y servicios.</label></div>
+        <div class="register-photo">
+              
+                <div class="form-container">
+                    <div class="image-holder"></div>
+                    <form action="#" th:action="@{nuevoRegistro}" th:object="${clientenuevo}" method="post">
+                        <h2 class="text-center"><strong>Crear una cuenta.</strong></h2>
+                        <div class="form-group">
+                            <input th:field="*{nombre}" type="text" class="form-control" id="formGroupExampleInput"
+                                placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <input th:field="*{correo}" class="form-control" type="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input th:field="*{contraseña}" class="form-control" type="password" name="password"
+                                placeholder="Password"></div>
+                        <div class="form-group">
+                            <input th:field="*{edad}" type="text" class="form-control" id="formGroupExampleInput"
+                                placeholder="Edad">
+                        </div>
+                        
+                       
+                        
+                        <div class="form-group">
+                            <div class="form-check">
+                                <label class="form-check-label"><input class="form-check-input" type="checkbox">Estoy
+                                    deacuerdo con los terminos y servicios.</label></div>
+                        </div>
+                        <div class="form-group">
+                                <form method="POST"></form>
+                            <button action="#" type="submit" class="btn btn-warning">Registrar</button>
+                            <br>
+                        </div><a th:href="login" class="already">¿Ya tienes una cuenta? Entra aquí.</a>
+                    </form>
                 </div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Regístrate<br></button>
-                </div><a href="#" class="already">¿Ya tienes una cuenta? Entra aquí.</a>
-            </form>
-        </div>
-    </div>
+            </div>
     <div class="footer-dark">
         <footer>
             <div class="container">
