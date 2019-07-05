@@ -24,8 +24,10 @@
                             style="color: #ffffff;">Inicio</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="menu"
                             style="color: #fefefe;">Menu</a></li>
+                            <th:block th:unless="${(session.usuario==null)}">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="pedidos"
                             style="color: #fffefd;">Pedir</a></li>
+                        </th:block>
                     <li class="nav-item" role="presentation"><a class="nav-link text-right float-right" href="contacto"
                             style="color: #ffffff;">Contactanos</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
@@ -39,7 +41,7 @@
 
                     <th:block th:if="${(session.usuario==null)}">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="/login" style="color: #ffffff;">Ingresar</a>
+                            <a class="nav-link" href="/login" style="color: #ffffff;" >Ingresar</a>
                         </li>
                     </th:block>
                     <th:block th:if="${(session.usuario==null)}">

@@ -150,7 +150,7 @@ body {
   color: #fff;
   opacity: 0.75;
 }
-nav ul li a:hover{
+.nav-link ul li a:hover{
   color: lightblue;
 }
 
