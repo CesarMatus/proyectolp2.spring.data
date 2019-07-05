@@ -57,5 +57,12 @@ public class loginAdministradoresController {
         }
         return "loginadministradores";
     }
-
+    
+    @PostMapping("logout")
+    public String logout(HttpServletRequest request){
+        
+        request.getSession().invalidate();
+        
+        return "redirect:/";
+    }
 }

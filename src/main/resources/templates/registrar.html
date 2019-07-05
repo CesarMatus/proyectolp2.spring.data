@@ -37,6 +37,28 @@
                     <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
                             th:href="loginadministradores" style="color: #ffffff;">Administradores</a></li>
                 </ul>
+                <ul class="navbar-nav footer-dark-row">
+
+                    <th:block th:if="${(session.usuarioCL==null)}">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" href="/login" style="color: #ffffff;">Ingresar</a>
+                        </li>
+                    </th:block>
+
+                    <th:block th:unless="${(session.usuario==null)}">
+                        <li class="nav-item dropdown float-right">
+                            <a class="nav-link dropdown-toggle" href="#" style="color: #ffffff;" id="dropdown2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                text="'Logueado como: '+${session.usuario.getUsuario()}">Session</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown2">
+                                <form th:action="@{loginadministradores/logout}" method="POST">
+                                    <input class="dropdown-item" type="submit" value="Terminar Sesión">
+                                </form>
+                            </div>
+                        </li>
+                    </th:block>
+
+                </ul>
             </div>
         </div>
     </nav>
