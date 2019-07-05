@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>ArmaTuBandeja</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
+    <link rel="stylesheet" th:href="@{/fonts/ionicons.min.css}">
+    
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css}">
 </head>
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md" style="background-color: #eb8e20;">
         <div class="container-fluid"><a class="navbar-brand float-right"
-                href="#"><strong><em>TuBandeja4GO!</em></strong></a><button class="navbar-toggler float-right"
+                href="#"><strong><em>TuBandeja4GO</em></strong></a><button class="navbar-toggler float-right"
                 data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
                     class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse text-right border rounded float-right" id="navcol-1"
@@ -29,7 +30,38 @@
                             style="color: #ffffff;">Contactanos</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
                             href="loginadministradores" style="color: #ffffff;">Administradores</a></li>
+
+                            
+
+                                
                 </ul>
+                <ul class="navbar-nav footer-dark-row">
+                                   
+                        <th:block th:if="${(session.usuarioCL==null)}">
+                                <li class="nav-item" role="presentation" > 
+                                        <a class="nav-link" href="/login" style="color: #ffffff;">Ingresar</a>
+                                </li>
+                        </th:block>
+                        
+                         <th:block th:unless="${(session.usuarioCL==null)}">
+                                <li class="nav-item dropdown float-right"> 
+                                        <a class="nav-link dropdown-toggle" href="#" style="color: #ffffff;" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" text="'Logueado como: '+${session.usuarioCL.getUsuario()}" >dropdown</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdown2">
+                                            
+                                            <form action="logout" method="post">
+                                                    <input class="dropdown-item" type="submit" value="Terminar Sesión">
+                                            </form>
+                                        </div>          
+                                </li>
+                        </th:block>     
+                        <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        
+                    </ul>
+
+                
             </div>
         </div>
     </nav>

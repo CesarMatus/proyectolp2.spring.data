@@ -42,8 +42,8 @@ public class loginAdministradoresController {
         UsuarioBase usuarioBD = ubDAO.findByCorreo(correo);
 
         if (usuarioBD != null && usuarioBD.getContraseña().equals(password)) {
-            HttpSession sesion = request.getSession();
-            sesion.setAttribute("usuario", usuarioBD);
+            HttpSession session = request.getSession();
+            session.setAttribute("usuarioAD", usuarioBD);
             response.sendRedirect("administradores");
             return null;
         }

@@ -43,12 +43,20 @@ public class loginController {
         UsuarioBase usuarioBD = ubDAO.findByCorreo(correo);
 
         if (usuarioBD != null && usuarioBD.getContraseña().equals(password)) {
-            HttpSession sesion = request.getSession();
-            sesion.setAttribute("usuario", usuarioBD);
+            HttpSession session = request.getSession();
+            session.setAttribute("usuarioCL", usuarioBD);
             response.sendRedirect("pedidos");
             return null;
         }
         return "login";
+    }
+    
+     @PostMapping("logout")
+    public String logout(HttpServletRequest request){
+        
+        request.getSession().invalidate();
+        
+        return "redirect:/";
     }
 
 }
