@@ -150,6 +150,9 @@ body {
   color: #fff;
   opacity: 0.75;
 }
+nav ul li a:hover{
+  color: lightblue;
+}
 
 .footer-dark .item.social > a:hover {
   opacity: 0.9;
