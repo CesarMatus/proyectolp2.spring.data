@@ -46,7 +46,7 @@ public class loginController {
 
         if (usuarioBD != null && usuarioBD.getContraseña().equals(password)) {
             HttpSession session = request.getSession();
-            session.setAttribute("usuarioCL", usuarioBD);
+            session.setAttribute("usuario", usuarioBD);
             if(usuarioBD instanceof Funcionario) {
                response.sendRedirect("administradores");
             }else if(usuarioBD instanceof Cliente){
