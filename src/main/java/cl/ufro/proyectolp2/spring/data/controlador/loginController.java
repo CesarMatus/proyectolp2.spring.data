@@ -6,6 +6,8 @@
 package cl.ufro.proyectolp2.spring.data.controlador;
 
 import cl.ufro.proyectolp2.spring.data.dao.UsuarioBaseDAO;
+import cl.ufro.proyectolp2.spring.data.modelo.Cliente;
+import cl.ufro.proyectolp2.spring.data.modelo.Funcionario;
 import cl.ufro.proyectolp2.spring.data.modelo.UsuarioBase;
 import java.io.IOException;
 import java.util.HashMap;
@@ -38,16 +40,23 @@ public class loginController {
 
     @PostMapping
     public String login(@ModelAttribute("correo") String correo, @ModelAttribute("password") String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+        Model model = null; 
 
         UsuarioBase usuarioBD = ubDAO.findByCorreo(correo);
 
         if (usuarioBD != null && usuarioBD.getContraseña().equals(password)) {
             HttpSession session = request.getSession();
             session.setAttribute("usuarioCL", usuarioBD);
-            response.sendRedirect("pedidos");
+            if(usuarioBD instanceof Funcionario) {
+               response.sendRedirect("administradores");
+            }else if(usuarioBD instanceof Cliente){
+                response.sendRedirect("pedidos");                
+            }
             return null;
+        }else{
+            model.addAttribute("error", true); 
         }
+        
         return "login";
     }
     
