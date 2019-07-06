@@ -150,8 +150,8 @@ body {
   color: #fff;
   opacity: 0.75;
 }
-.nav-link ul li a:hover{
-  color: lightblue;
+.navbar ul li a:hover{
+  color: rgb(179, 255, 0);
 }
 
 .footer-dark .item.social > a:hover {
@@ -167,7 +167,7 @@ body {
 }
 
 .footer-dark-row{
-  margin-left:15rem;
+  margin-left:30rem;
 }
 
 .photo-gallery {

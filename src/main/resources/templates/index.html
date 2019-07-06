@@ -30,8 +30,7 @@
                         </th:block>
                     <li class="nav-item" role="presentation"><a class="nav-link text-right float-right" href="contacto"
                             style="color: #ffffff;">Contactanos</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
-                            href="loginadministradores" style="color: #ffffff;">Administradores</a></li>
+                   
 
 
 
@@ -54,7 +53,7 @@
                         <li class="nav-item dropdown float-right">
                             <a class="nav-link dropdown-toggle" href="#" style="color: #ffffff;" id="dropdown2"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                text="'Logueado como: '+${session.usuario.getUsuario()}">Session</a>
+                                th:text="'Logueado como: '+${session.usuario.getNombre()}">Session</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown2">
                                 <form th:action="@{loginadministradores/logout}" method="POST">
                                     <input class="dropdown-item" type="submit" value="Terminar Sesión">
@@ -103,6 +102,7 @@
                             <li><a href="#">Web design</a></li>
                             <li><a href="#">Desarrollador</a></li>
                             <li><a href="#">Hosting</a></li>
+                            <li><a href="loginadministradores" style="color: #ffffff;">Administradores</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 item">
