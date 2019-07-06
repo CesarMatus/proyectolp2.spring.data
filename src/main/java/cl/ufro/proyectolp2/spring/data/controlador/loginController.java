@@ -67,5 +67,12 @@ public class loginController {
         
         return "redirect:/";
     }
-
+    
+    @PostMapping("menu/logout")
+    public String logout2(HttpServletRequest request){
+        
+        request.getSession().invalidate();
+        
+        return "index";        
+    }
 }

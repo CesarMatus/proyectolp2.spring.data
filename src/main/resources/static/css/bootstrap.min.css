@@ -167,7 +167,8 @@ body {
 }
 
 .footer-dark-row{
-  margin-left:30rem;
+  margin: center;
+  text-align: center;
 }
 
 .photo-gallery {

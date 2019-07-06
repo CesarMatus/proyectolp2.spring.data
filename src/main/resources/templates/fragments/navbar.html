@@ -44,8 +44,9 @@
                                 th:text="'Logueado como: '+${session.usuario.getNombre()}">Session</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown2">
                                 <form th:action="@{logout}" method="POST">
+                                        <form th:action="@{logout}" method="POST">
                                     <input class="dropdown-item" type="submit" value="Terminar Sesión">
-                                </form>
+                                </form></form>
                             </div>
                         </li>
                     </th:block>
