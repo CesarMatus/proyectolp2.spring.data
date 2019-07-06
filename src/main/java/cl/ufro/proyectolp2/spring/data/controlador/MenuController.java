@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -19,19 +20,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("menu")
 public class MenuController {
-    
+
     @Autowired
-    private MenuDAO mDAO; 
-    
-    
-    
-        
+    private MenuDAO mDAO;
+
     @GetMapping
     public String page(Model model) {
-         model.addAttribute("menu", this.mDAO.findAll());
+        model.addAttribute("menu", this.mDAO.findAll());
         return "menu";
-       
+
+    }
+
+    @PostMapping("ejecutivo")
+    public String mostrarEjecutivo(Model model) {
+        model.addAttribute("menu", this.mDAO.findAll());
+        return "/menu/ejecutivo";
     }
     
+    @PostMapping("junaeb")
+    public String mostrarJunaeb(Model model) {
+        model.addAttribute("menu", this.mDAO.findAll());
+        return "/menu/junaeb";
+    }
     
+    @PostMapping("atb")
+    public String mostrarATB(Model model) {
+        model.addAttribute("menu", this.mDAO.findAll());
+        return "/menu/atb";
+    }
+    
+    @PostMapping("hipocalorico")
+    public String mostrarHipocalorico(Model model) {
+        model.addAttribute("menu", this.mDAO.findAll());
+        return "/menu/hipocalorico";
+    }
+
 }

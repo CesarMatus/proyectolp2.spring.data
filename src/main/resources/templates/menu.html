@@ -1,146 +1,190 @@
 ﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>ArmaTuBandeja</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-    <link rel="stylesheet" th:href="@{/fonts/ionicons.min.css}">
-    <link rel="stylesheet" th:href="@{/fonts/font-awesome.min.css}">
-    <link rel="stylesheet" th:href="@{/fonts/ionicons.min.css}">
-    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css}">
+    <head>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+                <title>ArmaTuBandeja</title>
+                <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+                <link rel="stylesheet" th:href="@{/fonts/ionicons.min.css}">
+                    <link rel="stylesheet" th:href="@{/fonts/font-awesome.min.css}">
+                        <link rel="stylesheet" th:href="@{/fonts/ionicons.min.css}">
+                            <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css}">
 
-</head>
+                                </head>
 
-<body>
-    <nav class="navbar navbar-light navbar-expand-md" style="background-color: #eb8e20;">
-        <div class="container-fluid"><a class="navbar-brand float-right"
-                href="#"><strong><em>TuBandeja4GO!</em></strong></a><button class="navbar-toggler float-right"
-                data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
-                    class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse text-right border rounded float-right" id="navcol-1"
-                style="background-color: #4b4a4a;">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/"
-                            style="color: #ffffff;">Inicio</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="menu"
-                            style="color: #fefefe;">Menu</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="pedidos"
-                            style="color: #fffefd;">Pedir</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
-                            th:href="contacto" style="color: #ffffff;">Contactanos</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
-                            href="loginadministradores" style="color: #ffffff;">Administradores</a></li>
-                </ul>
-                <ul class="navbar-nav footer-dark-row">
+                                <body>
+                                    <nav class="navbar navbar-light navbar-expand-md" style="background-color: #eb8e20;">
+                                        <div class="container-fluid"><a class="navbar-brand float-right"
+                                                                        href="#"><strong><em>TuBandeja4GO!</em></strong></a><button class="navbar-toggler float-right"
+                                                                                                        data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                                                    class="navbar-toggler-icon"></span></button>
+                                            <div class="collapse navbar-collapse text-right border rounded float-right" id="navcol-1"
+                                                 style="background-color: #4b4a4a;">
+                                                <ul class="nav navbar-nav">
+                                                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/"
+                                                                                                style="color: #ffffff;">Inicio</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="menu"
+                                                                                                style="color: #fefefe;">Menu</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="pedidos"
+                                                                                                style="color: #fffefd;">Pedir</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
+                                                                                                th:href="contacto" style="color: #ffffff;">Contactanos</a></li>
+                                                    <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
+                                                                                                href="loginadministradores" style="color: #ffffff;">Administradores</a></li>
+                                                </ul>
+                                                <ul class="navbar-nav footer-dark-row">
 
-                    <th:block th:if="${(session.usuarioCL==null)}">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link" href="/login" style="color: #ffffff;">Ingresar</a>
-                        </li>
-                    </th:block>
+                                                    <th:block th:if="${(session.usuarioCL==null)}">
+                                                        <li class="nav-item" role="presentation">
+                                                            <a class="nav-link" href="/login" style="color: #ffffff;">Ingresar</a>
+                                                        </li>
+                                                    </th:block>
 
-                    <th:block th:unless="${(session.usuario==null)}">
-                        <li class="nav-item dropdown float-right">
-                            <a class="nav-link dropdown-toggle" href="#" style="color: #ffffff;" id="dropdown2"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                text="'Logueado como: '+${session.usuario.getUsuario()}">Session</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown2">
-                                <form th:action="@{loginadministradores/logout}" method="POST">
-                                    <input class="dropdown-item" type="submit" value="Terminar Sesión">
-                                </form>
-                            </div>
-                        </li>
-                    </th:block>
+                                                    <th:block th:unless="${(session.usuario==null)}">
+                                                        <li class="nav-item dropdown float-right">
+                                                            <a class="nav-link dropdown-toggle" href="#" style="color: #ffffff;" id="dropdown2"
+                                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                                               text="'Logueado como: '+${session.usuario.getUsuario()}">Session</a>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdown2">
+                                                                <form th:action="@{loginadministradores/logout}" method="POST">
+                                                                    <input class="dropdown-item" type="submit" value="Terminar Sesión">
+                                                                </form>
+                                                            </div>
+                                                        </li>
+                                                    </th:block>
 
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div></div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <div class="photo-gallery">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center">Menu del Casino</h2>
-                <p class="text-center">En esta seccion encontraras los 4 tipos de menus disponibles en nuestro casino,
-                    siempre bajo nuestro sello, comidas caseras.</p>
-            </div>
-            <div class="row photos">
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/comidas/ejecutivo" data-lightbox="photos"><img
-                            class="img-fluid" src="/img/ejecutivo1.jpg" ></a></div>
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/comidas/junaeb"
-                        data-lightbox="photos"><img class="img-fluid" src="img/junaeb1.jpg"></a></div>
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/comidas/armatubandeja" data-lightbox="photos"><img
-                            class="img-fluid" src="/img/armatubandeja1.jpg"></a></div>
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/comidas/hipocalorico" data-lightbox="photos"><img
-                            class="img-fluid" src="/img/hipocalorico1.jpg"></a></div>
-            </div>
-        </div>
-    </div>
-    <div class="brands"><a href="#"> <img src="/img/instacart.png"><img src="/img/kickstarter.png"><img
-                src="/img/lyft.png"><img src="/img/shopify.png"><img src="/img/pinterest.png"><img
-                src="/img/twitter.png"></a></div>
-    <div class="footer-dark">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Servicios</h3>
-                        <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Desarrollador</a></li>
-                            <li><a href="#">Hosting</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Sobre Nosotros</h3>
-                        <ul>
-                            <li><a href="#">Compañia</a></li>
-                            <li><a href="#">Equipo</a></li>
-                            <li><a href="#">Funcionarios</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 item text">
-                        <h3>TuBandeja4GO!</h3>
-                        <p>TuBandeja4GO!
-                            somos una aplicación que sea posible escoger entre un menú diario que también se mostrará de
-                            manera semanal, en el que
-                            puedan agregar o quitar alimentos, y en donde al finalizar su elección, puedan escoger una
-                            hora
-                            durante el día entre las 12 del medio día y las 16hrs. para retirar su bandeja, mientras les
-                            sea
-                            permitido, tanto por la cantidad de pedidos como por el límite horario, así luego paguen
-                            dentro de
-                            la misma aplicación, y se les entregue un número de atención con su horario de estimación de
-                            entrega. De esta manera evitaremos todo lo que es la fila de compra, como la fila de retiro.
-                        </p>
-                    </div>
-                    <div class="col item social"><a href="https://www.facebook.com/TuBandeja4GO"><i
-                                class="icon ion-social-facebook"></i></a><a
-                            href="https://www.twiiter.com/TuBandeja4GO"><i class="icon ion-social-twitter"></i></a><a
-                            href="https://www.snapchat.com/TuBandeja4GO"><i class="icon ion-social-snapchat"></i></a><a
-                            href="https://www.instagram.com/TuBandeja4GO"><i class="icon ion-social-instagram"></i></a>
-                    </div>
-                </div>
-                <p class="copyright">TuBandeja4GO! © 2019</p>
-            </div>
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-</body>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                    <div></div>
+                                    <script src="assets/js/jquery.min.js"></script>
+                                    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+                                    <!-- Optional JavaScript -->
+                                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                                            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                                    crossorigin="anonymous"></script>
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                                            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                                    crossorigin="anonymous"></script>
+                                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                                            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                                    crossorigin="anonymous"></script>
+                                    <div class="photo-gallery">
+                                        <div class="container">
+                                            <div class="intro">
+                                                <h2 class="text-center">Menu del Casino</h2>
+                                                <p class="text-center">En esta seccion encontraras los 4 tipos de menus disponibles en nuestro casino,
+                                                    siempre bajo nuestro sello, comidas caseras.</p>
+                                            </div>
+                                            <div class="row photos">
+                                                
+                                                <div class="col-3">
+                                                        <form action="#" th:action="@{/menu/ejecutivo}" th:object="${menu}" method="POST">
+                                                    <div class="card" style="width: 15rem;">
+                                                        <img src="/img/ejecutivo1.jpg" class="card-img-top" alt="...">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Menu Ejecutivo</h5>
+                                                                <p class="card-text">Esta opción de comida es muy rica.</p>
+                                                                <button action="#" type="submit" class="btn btn-primary">Revisar</button>
+                                                                
+                                                            </div>
+                                                    </div>
+                                                        </form>
+                                                </div>
+                                                <div class="col-3">
+                                                        <form action="#" th:action="@{/menu/junaeb}" th:object="${menu}" method="POST">
+                                                    <div class="card" style="width: 15rem;">
+                                                        <img src="/img/junaeb1.jpg" class="card-img-top" alt="...">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Menu Junaeb</h5>
+                                                                <p class="card-text">Esta opción de comida es muy rica y economica.</p>
+                                                                <button action="#" type="submit" class="btn btn-primary">Revisar</button>
+                                                            </div>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                                <div class="col-3">
+                                                        <form action="#" th:action="@{/menu/atb}" th:object="${menu}" method="POST">
+                                                    <div class="card" style="width: 15rem;">
+                                                        <img src="/img/armatubandeja1.jpg" class="card-img-top" alt="...">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Menu ATB</h5>
+                                                                <p class="card-text">Esta opción de Armar tu bandeja te entregará la posibilidad de elegir.</p>
+                                                                <button action="#" type="submit" class="btn btn-primary">Revisar</button>
+                                                            </div>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                                <div class="col-3">
+                                                        <form action="#" th:action="@{/menu/hipocalorico}" th:object="${menu}" method="POST">
+                                                    <div class="card" style="width: 15rem;">
+                                                        <img src="/img/hipocalorico1.jpg" class="card-img-top" alt="...">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Menu Hipocalorico</h5>
+                                                                <p class="card-text">Esta opción de comida es muy rica y sana</p>
+                                                                <button action="#" type="submit" class="btn btn-primary">Revisar</button>
+                                                            </div>
+                                                    </div>
+                                                </form>
+                                                </div>
+                                            
 
-</html>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="brands"><a href="#"> <img src="/img/instacart.png"><img src="/img/kickstarter.png"><img
+                                                        src="/img/lyft.png"><img src="/img/shopify.png"><img src="/img/pinterest.png"><img
+                                                                    src="/img/twitter.png"></a></div>
+                                                                    <div class="footer-dark">
+                                                                        <footer>
+                                                                            <div class="container">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-6 col-md-3 item">
+                                                                                        <h3>Servicios</h3>
+                                                                                        <ul>
+                                                                                            <li><a href="#">Web design</a></li>
+                                                                                            <li><a href="#">Desarrollador</a></li>
+                                                                                            <li><a href="#">Hosting</a></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="col-sm-6 col-md-3 item">
+                                                                                        <h3>Sobre Nosotros</h3>
+                                                                                        <ul>
+                                                                                            <li><a href="#">Compañia</a></li>
+                                                                                            <li><a href="#">Equipo</a></li>
+                                                                                            <li><a href="#">Funcionarios</a></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="col-md-6 item text">
+                                                                                        <h3>TuBandeja4GO!</h3>
+                                                                                        <p>TuBandeja4GO!
+                                                                                            somos una aplicación que sea posible escoger entre un menú diario que también se mostrará de
+                                                                                            manera semanal, en el que
+                                                                                            puedan agregar o quitar alimentos, y en donde al finalizar su elección, puedan escoger una
+                                                                                            hora
+                                                                                            durante el día entre las 12 del medio día y las 16hrs. para retirar su bandeja, mientras les
+                                                                                            sea
+                                                                                            permitido, tanto por la cantidad de pedidos como por el límite horario, así luego paguen
+                                                                                            dentro de
+                                                                                            la misma aplicación, y se les entregue un número de atención con su horario de estimación de
+                                                                                            entrega. De esta manera evitaremos todo lo que es la fila de compra, como la fila de retiro.
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div class="col item social"><a href="https://www.facebook.com/TuBandeja4GO"><i
+                                                                                                class="icon ion-social-facebook"></i></a><a
+                                                                                            href="https://www.twiiter.com/TuBandeja4GO"><i class="icon ion-social-twitter"></i></a><a
+                                                                                            href="https://www.snapchat.com/TuBandeja4GO"><i class="icon ion-social-snapchat"></i></a><a
+                                                                                            href="https://www.instagram.com/TuBandeja4GO"><i class="icon ion-social-instagram"></i></a>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p class="copyright">TuBandeja4GO! © 2019</p>
+                                                                            </div>
+                                                                            <script src="assets/js/jquery.min.js"></script>
+                                                                            <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+                                                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
+                                                                            </body>
+
+                                                                            </html>
