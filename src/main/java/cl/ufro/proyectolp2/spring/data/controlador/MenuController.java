@@ -54,5 +54,7 @@ public class MenuController {
         model.addAttribute("menu", this.mDAO.findAll());
         return "/menu/hipocalorico";
     }
-
+    
+    
+    
 }

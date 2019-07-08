@@ -88,7 +88,24 @@ body {
   -webkit-box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
   box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
+  
 }
+
+.jumbotron2{
+  background-image: url(/img/star-sky.jpg);
+  background-size: cover;
+  
+  text-shadow: 1px 1.5px rgb(0, 0, 0);
+  padding-top: 150px;
+  
+  color: #fcc01d;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
+  box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
+}
+
 .display-6{
     
     background-color: #40474e7c;
@@ -195,7 +212,7 @@ body {
 
 .photo-gallery {
   color: #313437;
-  background-color: #fff;
+  background-color: #d6c7b638;
 }
 
 .photo-gallery p {
