@@ -63,6 +63,6 @@ public class loginAdministradoresController {
         
         request.getSession().invalidate();
         
-        return "redirect:/";
+        return "logout";
     }
 }

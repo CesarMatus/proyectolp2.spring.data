@@ -65,7 +65,7 @@ public class loginController {
         
         request.getSession().invalidate();
         
-        return "redirect:/";
+        return "logout";
     }
     
     @PostMapping("menu/logout")
@@ -75,4 +75,6 @@ public class loginController {
         
         return "index";        
     }
+    
+    
 }
