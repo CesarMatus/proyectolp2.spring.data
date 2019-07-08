@@ -236,8 +236,10 @@ body {
 }
 
 .register-photo {
-  background: #4b4a4a;
-  padding: 80px 0;
+  
+    background: #475d62 url(../../img/login1.jpg);
+    background-size: cover;
+    position: relative;
 }
 
 .register-photo .image-holder {
