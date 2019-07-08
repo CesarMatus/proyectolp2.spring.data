@@ -106,12 +106,32 @@ body {
   box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
 }
 
+.jumbotron3{
+  background-image: url(/img/index2.jpg);
+  background-size: cover;
+  
+  text-shadow: 1px 1.5px rgb(0, 0, 0);
+  padding-top: 150px;
+  color: #fcc01d;
+  text-align: center;
+  border-radius: 3px;
+  -webkit-box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
+  box-shadow: -5px 24px 32px 0px rgba(0,0,0,0.75);
+  
+}
+
 .display-6{
     
     background-color: #40474e7c;
     border-color: #343a40; 
 }
 
+.display-7{
+    
+  background-color: #4e4040cc;
+  border-color: #343a40; 
+}
 .footer-dark {
   padding: 50px 0;
   color: #f0f9ff;
