@@ -56,10 +56,11 @@ public class loginController {
             }
             return null;
         }else{
-            model.addAttribute("error", true); 
+            model.addAttribute("error", Boolean.TRUE); 
+            return "login";
         }
         
-        return "login";
+        
     }
     
      @PostMapping("logout")
