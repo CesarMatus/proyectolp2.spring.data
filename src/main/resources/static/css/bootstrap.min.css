@@ -453,8 +453,32 @@ body {
    background-color: #ad1457;
    color: white;  
 } 
+
+/*TEMPORIZADOR*/
+#start-timer {
+  position: absolute;
+  width: 130px;
+  height: 20px;
+  top: 60px;
+  left: 25px;
+  cursor: pointer;
+}
+#stop-timer {
+  position: absolute;
+  width: 130px;
+  height: 20px;
+  top: 85px;
+  left: 25px;
+  cursor: pointer;
+}
+
+
+
+
+
 /*lo del login*/
 
 
 
 /*esto es del pedidoshtml */
+

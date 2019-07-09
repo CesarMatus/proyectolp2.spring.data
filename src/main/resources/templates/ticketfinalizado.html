@@ -75,18 +75,18 @@
         </div>
     </nav>
     <!-- Codigo Vista ticket-->
-    <div class="register-photo">
+    <!--<div class="register-photo">
         <div class="form-container">
             <div class="image-holder">
                 <div class="tablas row">
                     <div class="card text-left">
-                      <img class="card-img-top" src="holder.js/100px180/" alt="">
-                      <div class="card-body">
-                        <h4 class="card-title">Title</h4>
-                        <p class="card-text">Body</p>
-                      </div>
+                        <img class="card-img-top" src="holder.js/100px180/" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">Title</h4>
+                            <p class="card-text">Body</p>
+                        </div>
                     </div>
-        
+
                 </div>
 
             </div>
@@ -142,7 +142,29 @@
 
             </div>
         </div>
+    </div>-->
+
+    <!-- INTENTO DE TEMPORIZADOR -->
+
+    <div class="jumbotron2 m-5 text-center">
+        <h3 class="display-4">¡Estamos preparando tu Pedido!</h3>
+        <p class="lead">Espera unos segundos en esta página</p>
+        <hr class="my-2">
+        <p>En pocos minutos se te llamará para que retires tu pedido, gracias por preferirnos</p>
+        <p class="lead">
+
+        </p>
+        <HR width="0%">
+        <HR width="0%">
     </div>
+
+    <meta http-equiv="refresh" content="10;URL=ticket" />
+
+    <!-- FIN INTENTO TEMPORIZADOR-->
+
+
+
+
     <!--Fin cogido Vista ticket-->
     <div class="footer-dark">
         <footer>
@@ -210,6 +232,21 @@
             $("#div-id").timer('start');
 
         }());
+    </script>
+
+    <!-- JAVASCRIP DEL TEPORIZADOR  -->
+    <script>
+        function startTimerHandler(e) {
+            Enabler.startTimer('My Timer');
+        }
+        document.getElementById('start-timer').addEventListener('click',
+            startTimerHandler, false);
+
+        function stopTimerHandler(e) {
+            Enabler.stopTimer('My Timer');
+        }
+        document.getElementById('stop-timer').addEventListener('click',
+            stopTimerHandler, false); 
     </script>
 </body>
 
