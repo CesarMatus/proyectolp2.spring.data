@@ -449,6 +449,10 @@ body {
   opacity: 1;
 }
 
+#botonProveedores {
+   background-color: #ad1457;
+   color: white;  
+} 
 /*lo del login*/
 
 

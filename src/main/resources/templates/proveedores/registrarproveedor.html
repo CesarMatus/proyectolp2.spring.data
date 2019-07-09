@@ -2,15 +2,15 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>ArmaTuBandeja</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 
-<body style="background-color: rgb(85,86,86);color: rgb(64,71,78);">
+<body style="background-color: rgb(85,86,86);color: rgb(255, 255, 255);">
     <nav class="navbar navbar-light navbar-expand-md" style="background-color: #eb8e20;">
         <div class="container-fluid"><a class="navbar-brand float-right"
                 href="#"><strong><em>TuBandeja4GO!</em></strong></a><button class="navbar-toggler float-right"
@@ -26,7 +26,7 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" th:href="pedidos"
                             style="color: #fffefd;">Pedir</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
-                            th:href="contacto" style="color: #ffffff;">Contactanos</a></li>
+                            th:href="contactos" style="color: #ffffff;">Contactanos</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link text-right float-right"
                             th:href="loginadministradores" style="color: #ffffff;">Administradores</a></li>
                 </ul>
@@ -55,44 +55,27 @@
             </div>
         </div>
     </nav>
-    <div id="tablas">
-        </br>
-        <div class="row">
-            <div class="col-6">
-                <h3>
-                    Listas de Funcionarios
-                </h3>
-            </div>
+    <div class="row">
+        <br>
+        <div class="tablas centrar">
+            <h4>
+                Completar datos del formulario
+            </h4>
         </div>
-        </br>
-        <div>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Edad</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="funcionario :${funcionarios}">
-                        <th scope="row" th:text="*{funcionario.id}"></th>
-                        <td th:text="*{funcionario.nombre}"></td>
-                        <td th:text="*{funcionario.correo}"></td>
-                        <td th:text="*{funcionario.edad}"></td>
-                        <td><a type="button" th:href="@{'/funcionarios/'+${funcionario.id}}" class="btn btn-warning"><i
-                                    class="fas fa-edit"></i></a></td>
-                        <form th:action="@{'/funcionarios/eliminarfuncionario/'+${funcionario.id}}" method="GET">
-                            <td><button type="submit" onclick="return confirm('¿Eliminar?')" class="btn btn-danger"><i
-                                        class="fas fa-trash-alt"></i></button></td>
-                        </form>
-                    </tr>
 
-                </tbody>
-            </table>
+        <br>
+        <br>
+        <br>
+        <div class="tablas row">
+            <form action="#" th:action="@{registrarProveedor}" th:object="${proveedornuevo}" method="post">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Ingresar Nombre Proveedor</label>
+                    <input th:field="*{nombre}" type="text" class="form-control" id="formGroupExampleInput"
+                        placeholder="Nombre Proveedor">
+                </div>
+
+                <button action="#" type="submit" class="btn btn-warning">Registrar</button>
+            </form>
         </div>
 
         <div class="social-bar">
@@ -111,7 +94,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
