@@ -15,9 +15,9 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface ClienteDAO extends CrudRepository<Cliente, Integer> {
     
-    @Override
+    /*@Override
     public List<Cliente> findAll();
     
     public Cliente findByUsuarioAndPassword(String correo, String contraseña);
-    
+    */
 }
