@@ -65,18 +65,9 @@
                     </div>
                 </div>
             </nav>
-    <div class="row">
-        <br>
-        <div class="tablas centrar">
-            <h4>
-                Completar datos del formulario
-            </h4>
-        </div>
-
-        <br>
-        <br>
-        <br>
-        <div class="tablas row">
+            <div class="register-photo">
+                    <div class="form-container">
+                        <div class="image-holder">
             <form action="#" th:action="@{registrarCasino}" th:object="${casinonuevo}" method="post">
                 <div class="form-group">
                     <label for="formGroupExampleInput">Ingresar Nombre Casino</label>
@@ -97,7 +88,8 @@
                 <button action="#" type="submit" class="btn btn-warning">Registrar</button>
             </form>
         </div>
-
+    </div>
+            </div>
         <div class="social-bar">
             <a href="https://www.facebook.com/" class="icon icon-facebook" target="_blank"></a>
             <a href="https://twitter.com/" class="icon icon-twitter" target="_blank"></a>

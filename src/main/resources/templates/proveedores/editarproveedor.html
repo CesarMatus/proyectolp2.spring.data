@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>ArmaTuBandeja</title>
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    
 </head>
 
 <body style="background-color: rgb(85,86,86);color: rgb(64,71,78);">
@@ -54,16 +55,9 @@
                     </div>
                 </div>
             </nav>
-    <div class="row">
-        <br>
-        <div class="tablas centrar">
-            <h3>
-                Editar Datos
-            </h3>
-        </div>
-
-        <br>
-        <div class="tablas row">
+            <div class="register-photo">
+                    <div class="form-container">
+                        <div class="image-holder">
             <form action="#" th:action="@{registrarProveedor}" th:object="${proveedornuevo}" method="post">
                 <div class="form-group">
                     <label for="formGroupExampleInput">ID</label>
@@ -78,6 +72,7 @@
                 <button action="#" type="submit" class="btn btn-warning">Editar</button>
             </form>
         </div>
+    </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
