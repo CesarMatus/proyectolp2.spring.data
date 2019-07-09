@@ -54,7 +54,7 @@ public class ClienteController {
     public void editarCliente(@ModelAttribute Cliente cliente, HttpServletResponse response,@PathVariable("id") Integer id) throws IOException {
         Optional<Cliente> clienteBD = clienteDAO.findById(id.intValue());
         this.clienteDAO.save(cliente); 
-        response.sendRedirect("");
+        response.sendRedirect("redirect:/clientes");
     }
     
     @GetMapping("eliminarcasino/{id}")

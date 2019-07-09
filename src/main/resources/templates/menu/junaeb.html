@@ -38,7 +38,16 @@
                         </ul>
                         <ul class="navbar-nav footer-dark-row">
         
-                            
+                            <th:block th:if="${(session.usuario==null)}">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" href="/login" style="color: #ffffff;">Ingresar</a>
+                                </li>
+                            </th:block>
+                            <th:block th:if="${(session.usuario==null)}">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" href="/registrar" style="color: #ffffff;">Registrar</a>
+                                </li>
+                            </th:block>
         
                             <th:block th:unless="${(session.usuario==null)}">
                                 <li class="nav-item dropdown float-right">
@@ -76,7 +85,7 @@
                     </div>
                 </div>
                 <div class="accordion text-center"   id="accordionExample" >
-                        <div class="card " style="background-color: #ffe08b;">
+                        <div class="card " style="background-color: #d8d8d8;">
                           <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
                               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -95,7 +104,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="card " style="background-color: #ffe08b;">
+                        <div class="card " style="background-color: #d8d8d8;">
                           <div class="card-header" id="headingTwo">
                             <h2 class="mb-0">
                               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -114,7 +123,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="card " style="background-color: #ffe08b;">
+                        <div class="card " style="background-color: #d8d8d8;">
                           <div class="card-header" id="headingThree">
                             <h2 class="mb-0">
                               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -124,7 +133,7 @@
                           </div>
                           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body">
-                                <li> A la Bontue </li>
+                                <li> Spagetti la Bontue </li>
                                 <li>Ensalada Mixtas </li>
                                 <li>Postre de Flan Chocolate</li>
                                 <li>Pan Moñito</li>
@@ -132,7 +141,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="card " style="background-color: #ffe08b;">
+                        <div class="card " style="background-color: #d8d8d8;">
                                 <div class="card-header" id="headingFour">
                                   <h2 class="mb-0">
                                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -153,7 +162,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="card " style="background-color: #ffe08b;">
+                              <div class="card " style="background-color: #d8d8d8;">
                                     <div class="card-header" id="headingFive">
                                       <h2 class="mb-0">
                                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">

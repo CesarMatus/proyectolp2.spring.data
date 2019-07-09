@@ -37,7 +37,17 @@
         
                         </ul>
                         <ul class="navbar-nav footer-dark-row">
-        
+                          
+                            <th:block th:if="${(session.usuario==null)}">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" href="/login" style="color: #ffffff;">Ingresar</a>
+                                </li>
+                            </th:block>
+                            <th:block th:if="${(session.usuario==null)}">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" href="/registrar" style="color: #ffffff;">Registrar</a>
+                                </li>
+                            </th:block>
                             
         
                             <th:block th:unless="${(session.usuario==null)}">
@@ -77,7 +87,7 @@
                     </div>
                 </div>
                 <div class="accordion text-center"   id="accordionExample" >
-                        <div class="card " style="background-color: #ffe08b;">
+                        <div class="card " style="background-color: #d8d8d8;">
                           <div class="card-header" id="headingOne">
                             <h2 class="mb-0">
                               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -89,14 +99,14 @@
                           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                               <li>Tallarines con Salsa Boloñesa Extra Carne.</li>
-                              <li>Ensalada de Lechugas o Sopa de Pollo</li>
+                              <li>Ensalada de Lechugas o Sopa de Pollo o Jurel a la Española</li>
                               <li>Postre de Jalea</li>
                               <li>Pan Casero</li>
                               <li>Agua Gasificada, Jugo de Naranjas o Bebida CocaCola (Sin Azucar)</li>
                             </div>
                           </div>
                         </div>
-                        <div class="card " style="background-color: #ffe08b;">
+                        <div class="card " style="background-color: #d8d8d8;">
                           <div class="card-header" id="headingTwo">
                             <h2 class="mb-0">
                               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -107,15 +117,15 @@
                           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
                               
-                              <li>Guiso de Lentejas con Salteado de Cerdo y Vienesas.</li>
-                              <li>.</li>
-                              <li>.</li>
-                              <li>.</li>
-                              <li>.</li>
+                                <li>Tomaticán de cerdo con Arroz</li>
+                                <li>Ensalada de Lechugas o Sopa de Pollo o Merluza a la Española</li>
+                                <li>Postre de Flan</li>
+                                <li>Pan Casero</li>
+                                <li>Agua Gasificada, Jugo de Naranjas o Bebida CocaCola (Sin Azucar)</li>
                             </div>
                           </div>
                         </div>
-                        <div class="card " style="background-color: #ffe08b;">
+                        <div class="card " style="background-color: #d8d8d8;">
                           <div class="card-header" id="headingThree">
                             <h2 class="mb-0">
                               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -125,15 +135,15 @@
                           </div>
                           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body">
-                              <li> a la Bontue con Extra Queso</li>
-                              <li>.</li>
-                              <li>.</li>
-                              <li>.</li>
-                              <li>.</li>
+                                <li>Pollo al jugo con Papas Fritas y Doradas</li>
+                                <li>Ensalada de Lechugas o Sopa de Pollo o Jurel a la Española</li>
+                                <li>Postre de Tiramisu</li>
+                                <li>Pan Casero</li>
+                                <li>Agua Gasificada, Jugo de Naranjas o Bebida CocaCola (Sin Azucar)</li>
                             </div>
                           </div>
                         </div>
-                        <div class="card " style="background-color: #ffe08b;">
+                        <div class="card " style="background-color: #d8d8d8;">
                                 <div class="card-header" id="headingFour">
                                   <h2 class="mb-0">
                                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -144,17 +154,17 @@
                                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                                   <div class="card-body">
                                     
-                                    <li>Porotos Pancho Villa con Longanizas Caseras.</li>
-                              <li>.</li>
-                              <li>.</li>
-                              <li>.</li>
-                              <li>.</li>
+                                      <li>Mix de Carnes con Papas Fritas</li>
+                                      <li>Ensalada de Lechugas o Sopa de Pollo o Jurel a la Española</li>
+                                      <li>Postre de Jalea</li>
+                                      <li>Pan Casero</li>
+                                      <li>Agua Gasificada, Jugo de Naranjas o Bebida CocaCola (Sin Azucar)</li>
                                     
                                     
                                   </div>
                                 </div>
                               </div>
-                              <div class="card " style="background-color: #ffe08b;">
+                              <div class="card " style="background-color: #d8d8d8;">
                                     <div class="card-header" id="headingFive">
                                       <h2 class="mb-0">
                                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -165,11 +175,11 @@
                                     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                                       <div class="card-body">
                                         
-                                        <li>Budin de Acelga y Pescado con Arroz.</li>
-                              <li>.</li>
-                              <li>.</li>
-                              <li>.</li>
-                              <li>.</li>
+                                          <li>Cerdo Asado con budin de acelgas</li>
+                                          <li>Ensalada de Pepinos o Sopa de Pollo o Merluza a la Española</li>
+                                          <li>Postre de Jalea</li>
+                                          <li>Pan Casero</li>
+                                          <li>Agua Gasificada, Jugo de Naranjas o Bebida CocaCola (Sin Azucar)</li>
                                       </div>
                                     </div>
                                   </div>

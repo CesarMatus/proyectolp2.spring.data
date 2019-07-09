@@ -38,7 +38,17 @@
         
                         </ul>
                         <ul class="navbar-nav footer-dark-row">
-        
+                            
+                                <th:block th:if="${(session.usuario==null)}">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" href="/login" style="color: #ffffff;">Ingresar</a>
+                                        </li>
+                                    </th:block>
+                                    <th:block th:if="${(session.usuario==null)}">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link" href="/registrar" style="color: #ffffff;">Registrar</a>
+                                        </li>
+                                    </th:block>
                             
         
                             <th:block th:unless="${(session.usuario==null)}">
