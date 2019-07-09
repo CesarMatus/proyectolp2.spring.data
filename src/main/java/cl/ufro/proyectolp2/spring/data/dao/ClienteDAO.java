@@ -6,6 +6,7 @@
 package cl.ufro.proyectolp2.spring.data.dao;
 
 import cl.ufro.proyectolp2.spring.data.modelo.Cliente;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -13,5 +14,10 @@ import org.springframework.data.repository.CrudRepository;
  * @author pablo
  */
 public interface ClienteDAO extends CrudRepository<Cliente, Integer> {
+    
+    @Override
+    public List<Cliente> findAll();
+    
+    public Cliente findByUsuarioAndPassword(String correo, String contraseña);
     
 }

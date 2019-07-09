@@ -5,6 +5,7 @@
  */
 package cl.ufro.proyectolp2.spring.data.controlador;
 
+//import cl.ufro.proyectolp2.spring.data.dao.ClienteDAO;
 import cl.ufro.proyectolp2.spring.data.dao.UsuarioBaseDAO;
 import cl.ufro.proyectolp2.spring.data.modelo.Cliente;
 import cl.ufro.proyectolp2.spring.data.modelo.Funcionario;
@@ -32,6 +33,7 @@ public class loginController {
 
     @Autowired
     private UsuarioBaseDAO ubDAO;
+    //ClienteDAO cDAO;
 
     @GetMapping
     public String page(Model model) {
@@ -75,6 +77,25 @@ public class loginController {
         
         return "index";        
     }
-    
+    /*
+    @PostMapping("login")
+    public String login(
+            Model model,  
+            @ModelAttribute Cliente c,
+            HttpServletRequest request
+    ){
+        
+        Cliente usuarioBD = cDAO.findByUsuarioAndPassword(c.getCorreo(),c.getContraseña());
+        
+        if(usuarioBD!=null){
+            request.getSession().setAttribute("usuarioLogueado", usuarioBD);
+            return "index";
+        }else{
+            model.addAttribute("cliente", new Cliente());
+            model.addAttribute("error", true);
+            return "login";
+        } 
+        
+    }*/
     
 }
