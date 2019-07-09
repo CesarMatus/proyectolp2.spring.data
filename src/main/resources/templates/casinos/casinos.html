@@ -11,6 +11,7 @@
 </head>
 
 <body style="background-color: rgb(85,86,86);color: rgb(64,71,78);">
+
         <nav class="navbar navbar-light navbar-expand-md" style="background-color: #eb8e20;">
                 <div class="container-fluid"><a class="navbar-brand float-right"
                         href="#"><strong><em>TuBandeja4GO</em></strong></a><button class="navbar-toggler float-right"
@@ -47,7 +48,7 @@
                                     <a class="nav-link" href="/registrar" style="color: #ffffff;">Registrar</a>
                                 </li>
                             </th:block>
-        
+          
                             <th:block th:unless="${(session.usuario==null)}">
                                 <li class="nav-item dropdown float-right">
                                     <a class="nav-link dropdown-toggle" href="#" style="color: #ffffff;" id="dropdown2"
@@ -65,6 +66,7 @@
                     </div>
                 </div>
             </nav>
+
     <div id="tablas">
         </br>
         <div class="row">
@@ -88,6 +90,8 @@
                         <th scope="col">Capacidad</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -102,6 +106,8 @@
                             <td><button type="submit" onclick="return confirm('¿Eliminar?')" class="btn btn-danger"><i
                                         class="fas fa-trash-alt"></i></button></td>
                         </form>
+                        <td><a type="button" th:href="@{/funcionarios/registrarfuncionario}"
+                                class="btn btn-primary"><i class="fas fa-user-plus"></i></a></td>
                     </tr>
 
                 </tbody>

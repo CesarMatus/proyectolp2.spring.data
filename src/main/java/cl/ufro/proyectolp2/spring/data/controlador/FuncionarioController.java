@@ -5,6 +5,7 @@
  */
 package cl.ufro.proyectolp2.spring.data.controlador;
 
+import cl.ufro.proyectolp2.spring.data.dao.CasinoDAO;
 import cl.ufro.proyectolp2.spring.data.dao.FuncionarioDAO;
 import cl.ufro.proyectolp2.spring.data.modelo.Funcionario;
 import java.io.IOException;
@@ -32,6 +33,9 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioDAO funcionarioDAO; 
     
+    @Autowired
+    private CasinoDAO casinoDAO; 
+    
     @GetMapping
     public String page(Model model) {
         
@@ -41,11 +45,11 @@ public class FuncionarioController {
     
     @GetMapping("registrarfuncionario")
     public String registrarFuncionario(Model model) {
-        
+        model.addAttribute("casinos", this.casinoDAO.findAll());
         model.addAttribute("funcionarionuevo", new Funcionario());
         return "funcionarios/registrarfuncionario";
     }
-    
+
     @PostMapping("registrarFuncionario")
     public void registrarFuncionarioNuevo(@ModelAttribute Funcionario funcionario, HttpServletResponse response) throws IOException {
         this.funcionarioDAO.save(funcionario); 

@@ -75,6 +75,13 @@
         
             <form action="#" th:action="@{registrarFuncionario}" th:object="${funcionarionuevo}" method="post">
                 <div class="form-group">
+                    <label for="exampleFormControlSelect1">Casino</label>
+                    <select th:field="*{codCasino}" class="form-control" id="exampleFormControlSelect1">
+                        <option th:each="casino : ${casinos}" th:text="${casino.nombre}" th:value="${casino.id}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="formGroupExampleInput">Ingresar Nombre Funcionario</label>
                     <input th:field="*{nombre}" type="text" class="form-control" id="formGroupExampleInput"
                         placeholder="Nombre Funcionario">

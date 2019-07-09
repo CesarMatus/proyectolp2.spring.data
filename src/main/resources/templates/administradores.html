@@ -89,31 +89,50 @@
                 </p>
             </div>
             <div class="row justify-content-center features">
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class=""></i>
-                        <h3 class="name">Funcionarios</h3>
-                        <p class="description">El Menu muestra los funcionarios que estan en la base de datos, se pueden
-                            editar y eliminar</p><a type="button" th:href="funcionarios"
-                            class="btn btn-primary">Funcionarios</a>
+                <div class="row">
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div class="box"><i class=""></i>
+                            <h3 class="name">Funcionarios</h3>
+                            <p class="description">El Menu muestra los funcionarios que estan en la base de datos, se
+                                pueden
+                                editar y eliminar</p><a type="button" th:href="funcionarios"
+                                class="btn btn-primary">Funcionarios</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div class="box"><i class=""></i>
+                            <h3 class="name">Clientes</h3>
+                            <p class="description">Muestra los Clientes registrados en la base de datos, se pueden
+                                editar y
+                                eliminar.</p><a type="button" th:href="clientes" class="btn btn-success">Clientes</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div class="box"><i class=""></i>
+                            <h3 class="name">Casinos </h3>
+                            <p class="description">Muestra los casinos que ya existen, los cuales se pueden crear,
+                                editar y
+                                eliminar. Ademas permite agregar un funcionario al respectivo casino al que corresponde.
+                            </p>
+                            <a type="button" th:href="casinos" class="btn btn-warning">Casinos</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class=""></i>
-                        <h3 class="name">Clientes</h3>
-                        <p class="description">Muestra los Clientes registrados en la base de datos, se pueden editar y
-                            eliminar.</p><a type="button" href="clientes" class="btn btn-success">Clientes</a>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class=""></i>
-                        <h3 class="name">Casinos </h3>
-                        <p class="description">Muestra los casinos que ya existen, los cuales se pueden crear, editar y
-                            eliminar.</p><a type="button" href="casinos" class="btn btn-warning">Casinos</a>
+                <div class="row">
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div class="box"><i class=""></i>
+                            <h3 class="name">Proveedores</h3>
+                            <p class="description">Muestra los proveedores que trabajan con los casinos, de los cuales,
+                                se úeden agregar, editar y eliminar.
+                            </p>
+                            <a id="botonProveedores" type="button" th:href="proveedores" class="btn btn-primary">Proveedores</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
